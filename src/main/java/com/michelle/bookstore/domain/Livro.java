@@ -31,12 +31,18 @@ public class Livro implements Serializable{
 		super();
 	}
 
-	public Livro(Integer id, String title, String authorName, String text) {
+	
+
+	public Livro(Integer id, String title, String authorName, String text, Categoria categoria) {
+		super();
 		this.id = id;
 		this.title = title;
 		this.authorName = authorName;
 		this.text = text;
+		this.categoria = categoria;
 	}
+
+
 
 	public Integer getId() {
 		return id;
