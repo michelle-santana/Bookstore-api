@@ -23,7 +23,7 @@ public class Livro implements Serializable{
 	private String authorName;
 	private String text;
 	
-	@JsonIgnore
+	@JsonIgnore //protege contra serialização;
 	@ManyToOne
 	@JoinColumn(name= "categoriaId")
 	private Categoria categoria;
