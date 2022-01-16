@@ -10,9 +10,7 @@ public class LivroDTO implements Serializable{
 	
 	private Integer id;
 	private String title;
-	private String authorName;
-	private String text;
-
+	
 	public LivroDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -22,8 +20,7 @@ public class LivroDTO implements Serializable{
 		super();
 		this.id = obj.getId();
 		this.title = obj.getTitle();
-		this.authorName = obj.getAuthorName();
-		this.text = obj.getText();
+		
 	}
 
 	public Integer getId() {
@@ -40,22 +37,6 @@ public class LivroDTO implements Serializable{
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getAuthorName() {
-		return authorName;
-	}
-
-	public void setAuthorName(String authorName) {
-		this.authorName = authorName;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
 	}
 	
 	
