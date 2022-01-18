@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.michelle.bookstore.domain.Categoria;
 import com.michelle.bookstore.domain.Livro;
 import com.michelle.bookstore.repositories.LivroRepository;
 import com.michelle.bookstore.services.exception.ObjectNotFoundException;
@@ -42,20 +43,23 @@ public class LivroService {
 		newObj.setText(obj.getText());
 	}
 
-//	public Livro create(Livro obj) {
-//		obj.setId(null);
-//		return repository.save(obj);
-//	}
+	public Livro create(Integer id_cat, Livro obj) {
+		obj.setId(null);
+		Categoria cat = categoriaService.findById(id_cat);
+		obj.setCategoria(cat);
+		return repository.save(obj);
 
-//
-//	public void delete(Integer id) {
-//		findById(id);
-//		try {
-//			repository.deleteById(id);
-//		} catch (DataIntegrityViolationException e) {
-//			throw new com.michelle.bookstore.services.DataIntegrityViolationException
-//			("Livro não pode ser deletado! Possui categorias associadas");
-//		}
-//}
-//	
+	}
+
+
+	public void delete(Integer id) {
+		Livro obj = findById(id);
+		try {
+			repository.delete(obj);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.michelle.bookstore.services.DataIntegrityViolationException
+			("Livro não pode ser deletado! Possui categorias associadas");
+		}
+}
+	
 }
