@@ -1,4 +1,4 @@
-package com.michelle.bookstore.services;
+package com.michelle.bookstore.services.exception;
 
 public class DataIntegrityViolationException extends RuntimeException{
 

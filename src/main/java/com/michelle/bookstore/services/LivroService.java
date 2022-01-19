@@ -3,6 +3,7 @@ package com.michelle.bookstore.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.michelle.bookstore.services.exception.DataIntegrityViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +58,7 @@ public class LivroService {
 		try {
 			repository.delete(obj);
 		} catch (DataIntegrityViolationException e) {
-			throw new com.michelle.bookstore.services.DataIntegrityViolationException
+			throw new DataIntegrityViolationException
 			("Livro não pode ser deletado! Possui categorias associadas");
 		}
 }
